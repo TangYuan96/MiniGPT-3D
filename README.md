@@ -34,6 +34,9 @@
 - We design the mixture of query experts to aggregate multiple features from different experts with only **0.4M parameters**.
 - Extensive experiments show  the  superior performance of MiniGPT-3D on multiple tasks  while **reducing the training time and parameters by up to 6x and 260x**, respectively. 
 
+**Note:** MiniGPT-3D takes the first step in efficient 3D-LLM, we hope  that MiniGPT-3D can bring new insights to this community. 
+
+
 ### Experiment Results
 #### Quantitative Comparisons with baselines.
 ![pic_3](media/result_1.jpg)
