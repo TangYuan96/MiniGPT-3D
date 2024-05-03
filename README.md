@@ -26,7 +26,7 @@
 
 ## 🔍 Overview
 
-
+### Model
 ![pic_2](media/overview_1.jpg)
 
 - We present MiniGPT-3D, an efficient and powerful 3D-LLM that  aligns 3D points with LLMs  using 2D priors. It is trained with **47.8 M learnable parameters**  in just **26.8 hours** on **a single RTX 3090 GPU**. 
@@ -34,9 +34,16 @@
 - We design the mixture of query experts to aggregate multiple features from different experts with only **0.4M parameters**.
 - Extensive experiments show  the  superior performance of MiniGPT-3D on multiple tasks  while **reducing the training time and parameters by up to 6x and 260x**, respectively. 
 
+### Experiment Results
+#### Quantitative Comparisons with baselines.
+![pic_3](media/result_1.jpg)
+
+#### Qualitative Comparisons with baselines.
+![pic_3](media/result_2.jpg)
+
 ## 💬 Dialogue Examples
 
-
+![pic_3](media/QA_00.jpg)
 ![pic_3](media/QA_11.jpg)
 ![pic_4](media/QA_33.jpg)
 

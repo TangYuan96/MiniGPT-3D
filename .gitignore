@@ -1,0 +1,13 @@
+__pycache__
+*.egg-info
+.vscode
+.idea
+checkpoints
+outputs
+wandb
+anno_data
+objaverse_data
+modelnet40_data
+*.zip
+*.ipynb
+serving_workdirs
