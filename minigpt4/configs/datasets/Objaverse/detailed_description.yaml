@@ -1,0 +1,10 @@
+datasets:
+  Objaverse_detailed:
+    data_type: point_cloud
+    build_info:
+
+      data_path: ./data/objaverse_data
+      ann_path: ./data/anno_data/PointLLM_complex_instruction_70K.json
+      pointnum: 8192
+      conversation_types: "detailed_description"  # * default is simple_des, used for stage1 pre-train
+      use_color: True

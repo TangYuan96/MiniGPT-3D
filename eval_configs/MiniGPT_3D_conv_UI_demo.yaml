@@ -1,0 +1,30 @@
+model:
+  arch: minigpt_3d
+  model_type: pretrain
+  max_txt_len: 160
+  end_sym: "###"
+  prompt_template: 'Instruct: {} /n Output: '
+  llama_model: "./params_weight/Phi_2"
+  ckpt: './params_weight/MiniGPT_3D_stage_3/MiniGPT_3D_stage_3.pth'
+  second_ckpt: "./params_weight/MiniGPT_3D_stage_4/MiniGPT_3D_stage_4.pth"
+  lora_r: 64
+  lora_alpha: 16
+  pc_linear_layer: 2
+  use_MQE: True  #  False: not use  query expert
+  query_expert_router_type: 'Sparse Router'  #  three types： Constant Router, Sparse Router,  Soft Router
+  query_expert_num: 8
+  query_expert_top_k: 2  #  the top_k numbers of  query expert in 'Sparse Router'
+  QFormer_lora_r: 8   # 0 : not use QFormer lora
+  QFormer_lora_alpha: 16
+  QFormer_lora_module: [ "query", "key",  "value" ]
+
+
+datasets:
+  Objaverse_brief:
+    batch_size: 9   # 9
+    text_processor:
+      train:
+        name: "blip_caption"
+
+run:
+  task: image_text_pretrain

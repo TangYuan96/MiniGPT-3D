@@ -1,13 +1,37 @@
+# Python
 __pycache__
+*.pyc
 *.egg-info
-.vscode
+dist
+
+# Log
+*.log
+*.log.*
+*.json
+*.jsonl
+
+# Data
+!**/alpaca-data-conversation.json
+
+# Editor
 .idea
-checkpoints
-outputs
-wandb
-anno_data
-objaverse_data
-modelnet40_data
-*.zip
+*.swp
+
+# Other
+.DS_Store
+
+output/
+params_weight/
+data/
+wandb/
+
+checkpoints/
+ckpts*
+
+.ipynb_checkpoints
 *.ipynb
-serving_workdirs
+
+# DevContainer
+!.devcontainer/*
+
+# Demo
