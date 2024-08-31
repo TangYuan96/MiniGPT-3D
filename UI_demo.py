@@ -208,7 +208,7 @@ def start_chat():
 
                         with gr.Row():
                             max_new_tokens = gr.Slider(
-                                minimum=10, maximum=200, value=70, step=10, interactive=True, label="Max words per reply", )
+                                minimum=10, maximum=200, value=60, step=10, interactive=True, label="Max words per reply", )
                             max_length = gr.Slider(
                                 minimum=400, maximum=1500, value=400, step=100, interactive=True,
                                 label="Max words in conv.", )

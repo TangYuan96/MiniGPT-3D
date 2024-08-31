@@ -44,7 +44,7 @@
 
 - [🔍 Overview](#-overview)
 - [💬 Dialogue Examples](#-dialogue-examples)
-- [📦 Training and Evaluation](#-Training and Evaluation)
+- [📦 Training and Evaluation](#-Training-and-Evaluation)
 - [📝 TODO List](#-todo-list)
 - [🔗 Citation](#-citation)
 - [📄 License](#-license)
@@ -84,6 +84,7 @@ Please refer to our paper for more dialogue examples.
 ## 📦 Training and Evaluation
 ### Installation
 We test our codes under the following environment:
+- One RTX 3090 GPU (24G)
 - Ubuntu 18.04.5
 - NVIDIA Driver: 515.105.01
 - CUDA 11.7
@@ -185,31 +186,21 @@ MiniGPT-3D
 #### Edit the output path of each Stages
 
 **If you want to use the default output path of each Stages, you can ignore the following steps.**
-1. Edit the output path of Stage I:
- 
-    Write your output path of Stage I  to the `output_dir` value of `./train_configs/MiniGPT_3D/stage_1.yaml` and the `second_ckpt` value of `./train_configs/MiniGPT_3D/stage_2.yaml`.
-
-2. Edit the output path of Stage II:
-
-    Write your output path of Stage II  to the `output_dir` value of `./train_configs/MiniGPT_3D/stage_2.yaml` and the `ckpt` value of `./train_configs/MiniGPT_3D/stage_3.yaml`.
-3. Edit the output path of Stage III:
-
-    Write your output path of Stage III  to the `output_dir` value of `./train_configs/MiniGPT_3D/stage_3.yaml` and the `ckpt` value of `./train_configs/MiniGPT_3D/stage_4.yaml`
-
-4. Edit the output path of Stage IV:
-
-   Write your  output path of Stage IV  to the `output_dir` value of `./train_configs/MiniGPT_3D/stage_4.yaml`
+1. Set your output path of Stage I  to [here](train_configs/MiniGPT_3D/stage_1.yaml#L44) at Line 44 and [here](train_configs/MiniGPT_3D/stage_2.yaml#L8) at Line 8.
+2. Set your output path of Stage II  to [here](train_configs/MiniGPT_3D/stage_2.yaml#L51) at Line 51 and [here](train_configs/MiniGPT_3D/stage_3.yaml#L7) at Line 7.
+3. Set your output path of Stage III  to [here](train_configs/MiniGPT_3D/stage_3.yaml#L66) at Line 66 and [here](train_configs/MiniGPT_3D/stage_4.yaml#L7) at Line 7.
+4. Set your  output path of Stage IV  to [here](train_configs/MiniGPT_3D/stage_4.yaml#L66) at Line 66.
 
 #### Train Stage I
 
-run the following command, start the Stage I.
+
 
 
     CUDA_VISIBLE_DEVICES=0 python  train.py --cfg-path ./train_configs/MiniGPT_3D/stage_1.yaml
 
 ####  Train Stage II
 
-run the following command, start the Stage II.
+
 
 
     CUDA_VISIBLE_DEVICES=0 python  train.py --cfg-path ./train_configs/MiniGPT_3D/stage_2.yaml
@@ -217,50 +208,52 @@ run the following command, start the Stage II.
 
 ####  Train Stage III
 
-run the following command, start the Stage III.
+
 
     CUDA_VISIBLE_DEVICES=0 python  train.py --cfg-path ./train_configs/MiniGPT_3D/stage_3.yaml
 
 
 ####  Train Stage IV
 
-run the following command, start the Stage IV.
+
 
     CUDA_VISIBLE_DEVICES=0 python  train.py --cfg-path ./train_configs/MiniGPT_3D/stage_4.yaml
 
 
 ### Evaluation
 
-#### Edit the output path of Stage III & IV in evaluation configuration
+#### A. Set the output path of Stage III & IV in evaluation configuration
    
- If you just want to verify the results of our paper, you can  ignore the following steps.
+ If you just want to verify the results of our paper, you can  ignore the following steps:
    
-1. updata the the output path of Stage III:
+1. Set your the output path of Stage III to [here](eval_configs/benchmark_evaluation_paper.yaml#L8) at Line 8.
 
-   Write your the output path of Stage III to the `ckpt` value in `./eval_configs/benchmark_evaluation_paper.yaml` and `./eval_configs/MiniGPT_3D_conv_UI_demo.yaml`
-
-2. updata the the output path of Stage IV:
-
-   Write your the output path of Stage IV to the `second_ckpt` value in `./eval_configs/benchmark_evaluation_paper.yaml` and `./eval_configs/MiniGPT_3D_conv_UI_demo.yaml`
+2. Set your the output path of Stage IV to [here](eval_configs/benchmark_evaluation_paper.yaml#L9) at Line 9.
 
 
-#### Output the result jsons
+#### B. Output the result jsons
 
 1. Output the result of open vocabulary classification on objaverse
+   
    ```bash
+   # Prompt 0: 
    export PYTHONPATH=$PWD
    CUDA_VISIBLE_DEVICES=0 python pointllm/eval/eval_objaverse.py --out_path ./output/test --task_type classification  --cfg-path ./eval_configs/benchmark_evaluation_paper.yaml    --prompt_index 0 
    ```
+ 
    ```bash
+   # Prompt 1: 
    export PYTHONPATH=$PWD
    CUDA_VISIBLE_DEVICES=0 python pointllm/eval/eval_objaverse.py --out_path ./output/test --task_type classification  --cfg-path ./eval_configs/benchmark_evaluation_paper.yaml    --prompt_index 1
    ```
 2. Output the result of close-set zero-shot classification on ModelNet40
    ```bash
+   # Prompt 0:
    export PYTHONPATH=$PWD
    CUDA_VISIBLE_DEVICES=0 python pointllm/eval/eval_modelnet_cls.py --out_path ./output/test  --cfg-path ./eval_configs/benchmark_evaluation_paper.yaml    --prompt_index 0
    ```
    ```bash
+   # Prompt 1: 
    export PYTHONPATH=$PWD
    CUDA_VISIBLE_DEVICES=0 python pointllm/eval/eval_modelnet_cls.py --out_path ./output/test  --cfg-path ./eval_configs/benchmark_evaluation_paper.yaml    --prompt_index 1
    ```
@@ -270,11 +263,11 @@ run the following command, start the Stage IV.
    export PYTHONPATH=$PWD
    CUDA_VISIBLE_DEVICES=0 python pointllm/eval/eval_objaverse.py --out_path ./output/test  --task_type captioning  --cfg-path ./eval_configs/benchmark_evaluation_paper.yaml    --prompt_index 2
    ```
-#### Evaluate Json Results
+#### C. Evaluate Json Results
 
-##### Evaluate with close-source LLM from OpenAI  <span style="color:red;">[Not recommended]</span>
+##### a. Evaluate with close-source LLM from OpenAI  <span style="color:red;">[Not recommended]</span>
    
-**In [GreenPLM](https://arxiv.org/pdf/2408.15966v1), we have noticed that the  close-source LLMs  GPT-3.5 and GPT-4   have two major drawbacks: inconsistent API versions and high evaluation costs (~35 CNY or 5 USD per  one evaluation). For instance, the GPT-3.5-turbo-0613 model used in  PointLLM and  our MiniGPT-3D  is no longer maintained, making it difficult to replicate the results.**
+In [GreenPLM](https://arxiv.org/pdf/2408.15966v1), we have noticed that the  close-source LLMs  GPT-3.5 and GPT-4   have two major drawbacks: **inconsistent API versions and high evaluation costs (~35 CNY or 5 USD per  one evaluation)**. For instance, the GPT-3.5-turbo-0613 model used in  PointLLM and  our MiniGPT-3D  is **no longer maintained, making it difficult to replicate the results**.
 
 <details>
   <summary>The following steps are for evaluation using OpenAI API. Maybe it does not work! (click to expand)</summary>
@@ -316,9 +309,9 @@ run the following command, start the Stage IV.
 </details>
 
 
-##### Evaluate with open-source Qwen2-72B-Instruct <span style="color:green;">[Recommend]</span>
+##### b. Evaluate with open-source Qwen2-72B-Instruct <span style="color:green;">[Recommend]</span>
    
-   **In [GreenPLM](https://arxiv.org/pdf/2408.15966v1), we propose new 3D object classification and caption benchmarks using GPP-4 level open-source Qwen2-72B-Instruct to make evaluations cost-effective and results consistently reproducible.**
+   In [GreenPLM](https://arxiv.org/pdf/2408.15966v1), we propose new 3D object classification and caption benchmarks using **GPP-4 level open-source Qwen2-72B-Instruct to make evaluations cost-effective and results consistently reproducible**.
 
    - You can get the **DASHSCOPE_API_KEY**   from [aliyun](https://bailian.console.aliyun.com/?apiKey=1#/api-key). The evaluation may require 9 CNY (~ 1.3 USD).
    - If you have enough GPU resources, you can also build your own Qwen2-72B-Instruct service, following the [Qwen2](https://github.com/QwenLM/Qwen2?tab=readme-ov-file). Then evaluate the results for free!
@@ -378,12 +371,26 @@ run the following command, start the Stage IV.
            --parallel --num_workers 4
   ```
 
-##### Traditional Metric Evaluation
+##### c. Traditional Metric Evaluation
 For the object captioning task, run the following command to evaluate model outputs with traditional metrics  Sentence-BERT and SimCSE.
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python pointllm/eval/traditional_evaluator.py --results_path /path/to/evaluation/PointLLM_brief_description_val_200_GT_Objaverse_captioning_prompt2.json
 ```
+
+
+### Run local gradio demo using your weihghts
+   
+
+1. Set your the output path of Stage III  [here](eval_configs/MiniGPT_3D_conv_UI_demo.yaml#L8) at Line 8.
+
+2. Set your the output path of Stage IV  [here](eval_configs/MiniGPT_3D_conv_UI_demo.yaml#L9) at Line 9.
+3. You can run the following command to start a local gradio conversation demo:
+
+      ```bash
+      python UI_demo.py --cfg-path ./eval_configs/MiniGPT_3D_conv_UI_demo.yaml --gpu-id 0
+      ```
+
 
 ## 📝 TODO List
 
