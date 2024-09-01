@@ -34,7 +34,7 @@
 
 ## 🔥 News
 - [2024-08] 💥 We release the training and inferencing codes, model checkpoints of paper, and the gradio demo codes for MiniGPT-3D.
-- [2024-08] 🍾 Check out our exploration of 3D data-efficient point-language understanding [GreenPLM](https://arxiv.org/pdf/2408.15966v1).
+- [2024-08] 🍾 Check out our exploration of 3D data-efficient point-language understanding [GreenPLM](https://arxiv.org/pdf/2408.15966).
 - [2024-07] 🎉 Our [Mamba3D](https://github.com/xhanxu/Mamba3D) is also accepted by ACM MM 2024! We achieve **92.64% Acc. SoTA** on the ScanObjectNN supervised learning classification with only linear complexity! Check it out!
 - [2024-07] 🎉 Our MiniGPT-3D is accepted by ACM MM 2024!
 - [2024-05] 💥 We release the [paper](https://arxiv.org/pdf/2405.01413) of MiniGPT-3D.  
@@ -69,7 +69,7 @@
 ![pic_3](media/results_form_openai.png)
 
 #### Quantitative Comparisons with baselines <span style="color:green;">[Using open-source LLM  Qwen2-72B-Instruct to evaluate]</span>
-The results refer from  [GreenPLM](https://arxiv.org/pdf/2408.15966v1).
+The results refer from  [GreenPLM](https://arxiv.org/pdf/2408.15966).
 
 ![pic_3_2](media/results_form_Qwen2.png)
 
@@ -267,7 +267,7 @@ MiniGPT-3D
 
 ##### a. Evaluate with close-source LLM from OpenAI  <span style="color:red;">[Not recommended]</span>
    
-In [GreenPLM](https://arxiv.org/pdf/2408.15966v1), we have noticed that the  close-source LLMs  GPT-3.5 and GPT-4   have two major drawbacks: **inconsistent API versions and high evaluation costs (~35 CNY or 5 USD per  one evaluation)**. For instance, the GPT-3.5-turbo-0613 model used in  PointLLM and  our MiniGPT-3D  is **no longer maintained, making it difficult to replicate the results**.
+In [GreenPLM](https://arxiv.org/pdf/2408.15966), we have noticed that the  close-source LLMs  GPT-3.5 and GPT-4   have two major drawbacks: **inconsistent API versions and high evaluation costs (~35 CNY or 5 USD per  one evaluation)**. For instance, the GPT-3.5-turbo-0613 model used in  PointLLM and  our MiniGPT-3D  is **no longer maintained, making it difficult to replicate the results**.
 
 <details>
   <summary>The following steps are for evaluation using OpenAI API. Maybe it does not work! (click to expand)</summary>
@@ -311,7 +311,7 @@ In [GreenPLM](https://arxiv.org/pdf/2408.15966v1), we have noticed that the  clo
 
 ##### b. Evaluate with open-source Qwen2-72B-Instruct <span style="color:green;">[Recommend]</span>
    
-   In [GreenPLM](https://arxiv.org/pdf/2408.15966v1), we propose new 3D object classification and caption benchmarks using **GPP-4 level open-source Qwen2-72B-Instruct to make evaluations cost-effective and results consistently reproducible**.
+   In [GreenPLM](https://arxiv.org/pdf/2408.15966), we propose new 3D object classification and caption benchmarks using **GPT-4 level open-source Qwen2-72B-Instruct to make evaluations cost-effective and results consistently reproducible**.
 
    - You can get the **DASHSCOPE_API_KEY**   from [aliyun](https://bailian.console.aliyun.com/?apiKey=1#/api-key). The evaluation may require 9 CNY (~ 1.3 USD).
    - If you have enough GPU resources, you can also build your own Qwen2-72B-Instruct service, following the [Qwen2](https://github.com/QwenLM/Qwen2?tab=readme-ov-file). Then evaluate the results for free!
@@ -379,7 +379,7 @@ CUDA_VISIBLE_DEVICES=0 python pointllm/eval/traditional_evaluator.py --results_p
 ```
 
 
-### Run local gradio demo using your weihghts
+### Run local gradio demo using your weights
    
 
 1. Set your the output path of Stage III  [here](eval_configs/MiniGPT_3D_conv_UI_demo.yaml#L8) at Line 8.
@@ -424,7 +424,7 @@ Together, Let's make LLM for 3D great!
 - [3D-LLM](https://arxiv.org/abs/2307.12981): employs 2D foundation models to encode multi-view images of 3D point clouds.
 - [PointLLM](https://arxiv.org/abs/2308.16911): employs 3D point clouds with LLaVA.
 - [ShapeLLM](http://arxiv.org/abs/2402.17766): combines a  powerful point cloud encoder with LLM for embodied scenes.
-- [GreenPLM](https://arxiv.org/pdf/2408.15966v1) : expands the text space to reduce the need for 3D-text data pairs, or requiring only text data.
+- [GreenPLM](https://arxiv.org/pdf/2408.15966) : expands the text space to reduce the need for 3D-text data pairs, or requiring only text data.
 
 
 ## 👏 Acknowledgements
