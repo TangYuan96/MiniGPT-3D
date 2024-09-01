@@ -428,4 +428,4 @@ Together, Let's make LLM for 3D great!
 
 
 ## 👏 Acknowledgements
-We would like to thank the authors of [PointLLM](https://github.com/OpenRobotLab/PointLLM), [TinyGPT-V](https://github.com/DLYuanGod/TinyGPT-V) and [MiniGPT-4](https://github.com/Vision-CAIR/MiniGPT-4)  for their great works and repos.
+We would like to thank the authors of [PointLLM](https://github.com/OpenRobotLab/PointLLM), [TinyGPT-V](https://github.com/DLYuanGod/TinyGPT-V) [MiniGPT-4](https://github.com/Vision-CAIR/MiniGPT-4), and [Octavius](https://github.com/OpenGVLab/LAMM)  for their great works and repos.
