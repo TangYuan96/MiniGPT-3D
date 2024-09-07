@@ -182,7 +182,7 @@ def start_chat():
             gr.Markdown(description_1)
             gr.Markdown(
                 """
-                [[Project Page](https://github.com/TangYuan96/MiniGPT-3D)] [[Paper](https://arxiv.org/pdf/2405.01413)] [[Code](https://github.com/TangYuan96/MiniGPT-3D)]
+                [[Project Page](https://tangyuan96.github.io/minigpt_3d_project_page/)]   [[Paper](https://arxiv.org/pdf/2405.01413)]   [[Code](https://github.com/TangYuan96/MiniGPT-3D)]
                 """
             )
             gr.Markdown(description)
