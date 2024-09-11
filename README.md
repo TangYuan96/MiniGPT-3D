@@ -10,6 +10,7 @@
 </p>
 
 <p align="center">
+    <a><strong>ACM MM 2024 </strong></a>
     <a href='https://tangyuan96.github.io/minigpt_3d_project_page/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
     <a href='https://arxiv.org/pdf/2405.01413'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
     <a href='https://huggingface.co/YuanTang96/MiniGPT-3D'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
