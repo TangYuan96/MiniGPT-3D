@@ -402,7 +402,6 @@ CUDA_VISIBLE_DEVICES=0 python pointllm/eval/traditional_evaluator.py --results_p
 - [ ] Add online demo.
 
 
-
 ## 🔗 Citation
 If you find our work helpful, please consider citing:
 ```bibtex
