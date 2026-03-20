@@ -426,6 +426,9 @@ Together, Let's make LLM for 3D great!
 - [ShapeLLM](http://arxiv.org/abs/2402.17766): combines a  powerful point cloud encoder with LLM for embodied scenes.
 - [GreenPLM](https://arxiv.org/pdf/2408.15966) : expands the text space to reduce the need for 3D-text data pairs, or requiring only text data.
 
+## 🌟 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=TangYuan96/MiniGPT-3D&type=date&legend=top-left)](https://www.star-history.com/#TangYuan96/MiniGPT-3D&type=date&legend=top-left)
 
 ## 👏 Acknowledgements
 We would like to thank the authors of [PointLLM](https://github.com/OpenRobotLab/PointLLM), [TinyGPT-V](https://github.com/DLYuanGod/TinyGPT-V), [MiniGPT-4](https://github.com/Vision-CAIR/MiniGPT-4), and [Octavius](https://github.com/OpenGVLab/LAMM)  for their great works and repos.
